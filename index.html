@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Journal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-book"></i> Daily Journal</h1>
+            <div class="header-buttons">
+                <button id="todayBtn" class="btn btn-primary">
+                    <i class="fas fa-calendar-day"></i> Today
+                </button>
+                <button id="calendarBtn" class="btn btn-secondary">
+                    <i class="fas fa-calendar"></i> Calendar
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Today's Journal Section -->
+            <section id="todaySection" class="journal-section active">
+                <div class="date-header">
+                    <h2 id="currentDate"></h2>
+                    <p class="date-subtitle">How was your day?</p>
+                </div>
+
+                <div class="journal-container">
+                    <div class="question-card">
+                        <h3 id="currentQuestion"></h3>
+                        <textarea 
+                            id="journalEntry" 
+                            placeholder="Share your thoughts..."
+                            rows="8"
+                        ></textarea>
+                        <div class="question-controls">
+                            <button id="prevQuestionBtn" class="btn btn-outline">
+                                <i class="fas fa-chevron-left"></i> Previous
+                            </button>
+                            <span id="questionProgress"></span>
+                            <button id="nextQuestionBtn" class="btn btn-outline">
+                                Next <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="entry-actions">
+                        <button id="saveEntryBtn" class="btn btn-success">
+                            <i class="fas fa-save"></i> Save Entry
+                        </button>
+                        <div class="save-status" id="saveStatus"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Calendar Section -->
+            <section id="calendarSection" class="calendar-section">
+                <div class="calendar-header">
+                    <button id="prevMonthBtn" class="btn btn-outline">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h2 id="calendarMonth"></h2>
+                    <button id="nextMonthBtn" class="btn btn-outline">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="calendar-grid">
+                    <div class="calendar-weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div id="calendarDays" class="calendar-days"></div>
+                </div>
+
+                <!-- Journal Entry Viewer -->
+                <div id="entryViewer" class="entry-viewer">
+                    <div class="entry-viewer-header">
+                        <h3 id="entryDate"></h3>
+                        <button id="closeViewerBtn" class="btn btn-outline">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div id="entryContent" class="entry-content"></div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Notification -->
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
